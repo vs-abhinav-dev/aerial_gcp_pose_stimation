@@ -2,6 +2,101 @@
 
 A deep learning pipeline for detecting Ground Control Point (GCP) markers in large aerial survey images and predicting both marker coordinates and marker shape.
 
+## Model Weights
+
+The trained model checkpoints are not stored directly in the repository due to file size limitations.
+
+You can obtain the pretrained weights using one of the following methods:
+
+### Option 1: GitHub Releases (Recommended)
+
+Download the latest model checkpoints from the repository Releases page:
+
+```text
+https://github.com/vs-abhinav-dev/aerial_gcp_pose_stimation/releases
+```
+
+The release package contains:
+
+```text
+best_localizer_model.pt
+best_classifie_model.pt
+best_shape_model.pt
+```
+
+Place the downloaded files in:
+
+```text
+/content/
+```
+
+or update the paths in the notebook accordingly.
+
+---
+
+### Option 2: Google Drive
+
+Download the model checkpoints from:
+
+
+[aerial_gcp_pipline.ipynb](https://drive.google.com/file/d/1g3RKJPSZKNQtQjRdvj5j40F4UV-fpZDw/view?usp=drive_link)
+
+
+The archive contains:
+
+
+[best_localizer.pt](https://drive.google.com/file/d/1DHBetEFWyWWyCcF32oGskJVyewhW2y-p/view?usp=drive_link)
+[best_classifier.pt](https://drive.google.com/file/d/1Qpy5mNka298bYZy943CJC9tM_t-t5Z_a/view?usp=drive_link)
+[best_shape_model.pt](https://drive.google.com/file/d/1Qpy5mNka298bYZy943CJC9tM_t-t5Z_a/view?usp=drive_link)
+
+After downloading, place the files in:
+
+```text
+/content/
+```
+
+when running in Google Colab.
+
+---
+
+### Option 3: Train From Scratch
+
+The notebook contains the complete training pipeline and can reproduce all model checkpoints from the provided dataset.
+
+Training stages:
+
+1. Marker Localizer
+2. Marker Classifier
+3. Shape Classifier
+
+The generated checkpoints will be saved automatically as:
+
+```text
+best_localizer.pt
+best_classifier.pt
+best_shape_model.pt
+```
+
+---
+
+## Running Inference
+
+Once the model checkpoints are available, load:
+
+```text
+best_localizer.pt
+best_classifier.pt
+best_shape_model.pt
+```
+
+and execute the inference section of the notebook to generate:
+
+```text
+predictions.json
+```
+
+in the required submission format.
+
 ---
 
 ## Overview
